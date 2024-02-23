@@ -1,42 +1,6 @@
-# Nuxt 3 Minimal Starter
+# 如何运行项目
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 本地安装nodejs环境
+## 安装好后进入项目目录，执行npm install
+## 执行后会下载node_modules依赖
+## 下载完成后，在当前目录执行 npm run dev 项目启动，本地打开localhost:3000端口
