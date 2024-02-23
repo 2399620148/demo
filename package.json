@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node ./.output/server/index.mjs",
+    "test": "nuxt -v",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "deploy": "npm run build && s deploy -y",
+		"pushcode": "git add . && git commit -m",
+		"postpushcode": "git push origin master"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "@alicloud/pop-core": "^1.7.12",
+    "@css-render/vue3-ssr": "^0.15.12",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "ali-oss": "^6.17.1",
+    "cookie-signature": "^1.2.0",
+    "dayjs": "^1.11.7",
+    "eslint": "^8.35.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "nanoid": "^4.0.1",
+    "nuxt": "3.10.3",
+    "@headlessui/tailwindcss": "^0.1.2",
+    "@headlessui/vue": "^1.7.12",
+    "@heroicons/vue": "^2.0.16",
+    "@nuxtjs/tailwindcss": "^6.4.1",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+  }
+}

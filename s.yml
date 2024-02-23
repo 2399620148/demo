@@ -1,0 +1,72 @@
+edition: 1.0.0
+name: component-test
+access: default
+services:
+  cn-beijing-LearningServer-nuxt-gateway:
+    component: fc
+    props:
+      region: cn-beijing
+      service:
+        logConfig:
+          enableRequestMetrics: true
+          enableInstanceMetrics: true
+          logBeginRule: DefaultRegex
+          project: fc-learning-logs
+          logstore: api-store
+        role: acs:ram::1733775280472808:role/aliyunfcdefaultrole
+        tracingConfig: Enable
+        description: 学习&考试平台
+        internetAccess: true
+        vpcConfig:
+          securityGroupId: sg-2ze7ypw1zih1q3paed7w
+          vpcId: vpc-2ze2fn5ufx5bepbfrm8ip
+          vswitchIds:
+            - vsw-2zea0yuqshg8qywq8s130
+        ossMountConfig:
+          mountPoints: []
+        name: LearningServer
+      function:
+        handler: index.handler
+        timeout: 60
+        diskSize: 512
+        caPort: 3000
+        layers:
+          - acs:fc:cn-beijing:official:layers/Nodejs18/versions/1
+        customRuntimeConfig:
+          command:
+            - node
+            - ./server/index.mjs
+        instanceType: e1
+        runtime: custom.debian10
+        cpu: 0.5
+        instanceConcurrency: 20
+        memorySize: 512
+        environmentVariables:
+          PATH: >-
+            /opt/nodejs18/bin:/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin:/opt/bin:/code:/code/bin
+          LD_LIBRARY_PATH: >-
+            /code:/code/lib:/usr/local/lib:/opt/lib:/opt/php8.1/lib:/opt/php8.0/lib:/opt/php7.2/lib
+          TZ: Asia/Shanghai
+          NODE_PATH: /opt/nodejs/node_modules
+          REDIS_SERVER: r-2ze059250otxipd7u7pd.redis.rds.aliyuncs.com
+          DB_SERVER: http://dev-db-666.zhifa315.com/learning
+          DB_EXAM_SERVER: http://dev-db-666.zhifa315.com/examing
+          NUXT_ALIYUN_ID: LTAI4GBmmFdYzbCwkNqHX65W
+          NUXT_ALIYUN_SECRET: ud70t1vnuobFgobyCY9X8HclSGxU3h
+          AUTHORIZATION: w54ydqubpxoxzormdlv2hgsu7rmkih49
+
+        name: nuxt-gateway
+        codeUri: './.output'
+      triggers:
+        - name: defaultTrigger
+          description: ''
+          type: http
+          qualifier: LATEST
+          config:
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            authType: anonymous
+            disableURLInternet: false
