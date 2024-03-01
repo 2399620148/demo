@@ -36,6 +36,7 @@ export default {
 
     modules: [
         '@nuxtjs/tailwindcss',
+        '@ant-design-vue/nuxt',
     ],
 
     tailwindcss: {

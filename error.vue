@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-normal">
       ~ 出错了
     </h1>
-    <a href="/"><Button>回首页</Button></a>
+    <a href="/login"><Button>回首页</Button></a>
   </main>
 </template>
 

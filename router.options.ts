@@ -9,12 +9,11 @@ export default <RouterConfig> {
       return { top: 0 }
     }
   },
-
   routes: (_routes) => [
     {
-      name: 'home',
+      name: 'login',
       path: '/',
-      component: () => import('~/pages/home.vue')
-    }
+      component: () => import('~/pages/login/index.vue')
+    },
   ]
 }
