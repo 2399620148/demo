@@ -1,10 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import { content } from "#tailwind-config";
+
 export default {
     app: {
         // pageTransition: { name: 'page', mode: 'out-in' }
         buildAssetsDir: "static",
         head: {
+            title: '影视大全',
+            meta: [
+                {
+                    name : 'keywords',
+                    content : '电影,电视剧,热播'
+                },
+                {
+                    name : 'description',
+                    content : '影视无界，只为爱观影的你！'
+                }
+            ]
         }
     },
 

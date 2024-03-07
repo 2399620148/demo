@@ -87,8 +87,11 @@
   });
 
   //校验用户登录！
-  const { data } = await useFetch('/api/user')
-  import { toRaw } from 'vue';
+  const { data } = await useFetch('/api/myapi/user')
+   import { toRaw } from 'vue';
+  //const route = useRoute()
+  
+
   const username = toRaw(data.value[0].username)
   const password = toRaw(data.value[0].password)
   const onFinish = (values: any) => {

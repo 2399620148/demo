@@ -1,0 +1,75 @@
+<template>
+  <div class="w-full h-full overflow-hidden relative group/section cursor-pointer select-none" :style="{width: width + 'px'}" >
+
+    <div class="w-full h-11 flex items-center justify-end absolute bottom-0 z-10">
+      <div class="inline-flex px-3 py-2 rounded-full bg-opacity-0 transition">
+        <div v-for="(item, index) in dataList" class="w-2 h-2 rounded-full bg-white bg-opacity-70 mr-1.5" :class="{ '!bg-opacity-100': index === currentIndex }" @click="handleShow(index)"></div>
+      </div>
+    </div>
+
+    <div class="flex h-full transition duration-300" :style="{width: width * dataList.length + 'px', transform: 'translateX(-' + currentIndex * width +'px)'}">
+      <NuxtLink :to=" '/new/' + item.id " class="flex flex-col h-full relative" :style="{width: width + 'px'}" v-for="item in dataList">
+        <img class="w-full h-full object-cover" :src="item.banner" />
+        <div class="bg-black bg-opacity-50 text-white text-opacity-90 absolute bottom-0 w-full h-12 px-4 flex items-center">{{item.title}}</div>
+      </NuxtLink>
+    </div>
+
+    <div class="absolute left-0 top-0 w-12 h-full flex items-center justify-center">
+      <div class="flex w-8 h-8 bg-black bg-opacity-40 rounded-full items-center justify-center cursor-pointer" :class="{ '!cursor-not-allowed opacity-40': currentIndex === 0}" @click="handlePrev"><ChevronLeftIcon class=" w-5 h-5 text-white " /></div>
+    </div>
+
+    <div class="absolute right-0 top-0 w-12 h-full flex items-center justify-center">
+      <div class="flex w-8 h-8 bg-black bg-opacity-40 rounded-full items-center justify-center cursor-pointer" @click="handleNext"><ChevronRightIcon class=" w-5 h-5 text-white " /></div>
+    </div>
+
+    <!-- <div class="flex w-full h-full absolute inset-0 items-center justify-center opacity-0 group-hover/section:opacity-100">
+      <div class="flex w-full h-8 items-center justify-center">
+        <div class="absolute flex left-3 w-8 h-8 bg-black bg-opacity-40 rounded-full items-center justify-center cursor-pointer" :class="{ '!cursor-not-allowed opacity-40': currentIndex === 0}" @click="handlePrev"><ChevronLeftIcon class=" w-5 h-5 text-white " /></div>
+        <div class="absolute flex right-3 w-8 h-8 bg-black bg-opacity-40 rounded-full items-center justify-center cursor-pointer" :class="{ '!cursor-not-allowed opacity-40': currentIndex === dataList.length - 1}" @click="handleNext"><ChevronRightIcon class=" w-5 h-5 text-white " /></div>
+      </div>
+    </div> -->
+
+  </div>
+</template>
+<script setup>
+  import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/solid';
+  const props = defineProps({
+    size: {
+      type: Number
+    },
+    width: Number,
+    class: String,
+    dataList: Array,
+  })
+  const count = props.dataList.length;
+  const currentIndex = ref(0);
+
+  function handleNext () {
+    if(currentIndex.value >= count - 1) {
+      currentIndex.value = 0;
+      return;
+    };
+    currentIndex.value = currentIndex.value + 1;
+  }
+
+  function handlePrev () {
+    if(currentIndex.value === 0) {
+      currentIndex.value = count - 1;
+      return;
+    };
+    currentIndex.value = currentIndex.value - 1;
+  }
+
+  function handleShow (index) {
+    currentIndex.value = index;
+  }
+
+  const timer = ref(null);
+
+  onMounted(() => {
+    timer.value = setInterval(() => {
+      handleNext();
+    }, 5000)
+  })
+
+</script>

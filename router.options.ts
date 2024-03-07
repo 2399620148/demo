@@ -10,6 +10,7 @@ export default <RouterConfig> {
     }
   },
   routes: (_routes) => [
+    ..._routes,
     {
       name: 'login',
       path: '/',
