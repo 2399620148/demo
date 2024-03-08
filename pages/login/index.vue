@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-cover bg-center" 
-  style="background-image: url(/login.jpg);background-position: bottom center;background-repeat: no-repeat;background-size: 100%;">
+  <div class="bg-cover bg-center" style="background-color: aqua;">
+  <!-- style="background-image: url(/login.jpg);background-position: bottom center;background-repeat: no-repeat;background-size: 100%;"> -->
     <div class="h-screen flex items-center justify-center" v-if="isShow">
       <a-form
         :model="formState"
