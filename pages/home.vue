@@ -12,21 +12,24 @@
           <a-menu-item key="2">电影</a-menu-item>
           <a-menu-item key="3">电视剧</a-menu-item>
         </a-menu>
-        <a-tooltip title="wenqiang" placement="bottom">
+        <!-- <a-tooltip title="wenqiang" placement="bottom">
           <a-avatar style="background-color: #87d068; right: 5.5%; top:2%; position: absolute;">
             <template #icon>
               <UserOutlined />
             </template>
           </a-avatar>
         </a-tooltip>
-        <span style="color:aliceblue; right: 2%; top:0.5%; position: absolute;" @click="logout">退出登录</span>
+        <span style="color:aliceblue; right: 2%; top:0.5%; position: absolute;" @click="logout">退出登录</span> -->
       </a-layout-header>
-      <a-layout-content style="padding: 0 50px">
-        <a-breadcrumb style="margin: 16px 0">
-          <a-breadcrumb-item>Home</a-breadcrumb-item>
-          <a-breadcrumb-item>List</a-breadcrumb-item>
-          <a-breadcrumb-item>App</a-breadcrumb-item>
-        </a-breadcrumb>
+      <a-layout-content style="padding: 0 0px">
+        <template>
+          <a-carousel autoplay>
+            <div><img src="https://img.dianyi.ng/view/photo/s_ratio_poster/public/p2904040720.jpg" object-fit></img></div>
+            <div><img src="/1.jpg"></img></div>
+            <div><img src="/login.jpg"></img></div>
+            <div><img src="/login.jpg"></img></div>
+          </a-carousel>
+        </template>
         <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">Content</div>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
@@ -64,5 +67,17 @@
   [data-theme='dark'] .site-layout-content {
     background: #141414;
   }
+
+  /* For demo */
+:deep(.slick-slide) {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+:deep(.slick-slide h3) {
+  color: #fff;
+}
   </style>
   

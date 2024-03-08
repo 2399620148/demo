@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-cover bg-center" style="background-color: aqua;">
+  <div class="bg-cover bg-center" style="background-color: #3BCF8C;">
   <!-- style="background-image: url(/login.jpg);background-position: bottom center;background-repeat: no-repeat;background-size: 100%;"> -->
     <div class="h-screen flex items-center justify-center" v-if="isShow">
       <a-form
@@ -31,9 +31,9 @@
           <a-checkbox v-model:checked="formState.remember">记住密码</a-checkbox>
         </a-form-item>
     
-        <a-form-item :wrapper-col="{ offset: 10, span: 16 }">
-          <a-button type="primary" html-type="submit" >登录</a-button>
-          <a-button type="primary" html-type="submit" @click="toRegister">注册</a-button>
+        <a-form-item >
+          <a-button type="primary" html-type="submit" block style="display:block;margin:0 auto">登录</a-button><br>
+          <a-button type="primary" html-type="submit" @click="toRegister" block style="display:block;margin:0 auto">注册</a-button>
         </a-form-item>
       </a-form>
     </div>
