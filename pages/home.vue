@@ -12,6 +12,14 @@
           <a-menu-item key="2">电影</a-menu-item>
           <a-menu-item key="3">电视剧</a-menu-item>
         </a-menu>
+        <a-tooltip title="wenqiang" placement="bottom">
+          <a-avatar style="background-color: #87d068; right: 5.5%; top:2%; position: absolute;">
+            <template #icon>
+              <UserOutlined />
+            </template>
+          </a-avatar>
+        </a-tooltip>
+        <span style="color:aliceblue; right: 2%; top:0.5%; position: absolute;" @click="logout">退出登录</span>
       </a-layout-header>
       <a-layout-content style="padding: 0 50px">
         <a-breadcrumb style="margin: 16px 0">
@@ -28,7 +36,12 @@
   </template>
   <script lang="ts" setup>
   import { ref } from 'vue';
-  const selectedKeys = ref<string[]>(['2']);
+  import { UserOutlined } from '@ant-design/icons-vue';
+  const selectedKeys = ref<string[]>(['1']);
+  const username = ref('wenqiang');
+  const logout = () => {
+    navigateTo('/login')
+  }
   </script>
   <style scoped>
   .site-layout-content {

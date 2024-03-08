@@ -12,23 +12,23 @@
         @finishFailed="onFinishFailed"
       >
         <a-form-item
-          label="Username"
+          label="用户名"
           name="username"
-          :rules="[{ required: true, message: 'Please input your username!' }]"
+          :rules="[{ required: true, message: '请输入用户名!' }]"
         >
           <a-input v-model:value="formState.username" />
         </a-form-item>
     
         <a-form-item
-          label="Password"
+          label="密码"
           name="password"
-          :rules="[{ required: true, message: 'Please input your password!' }]"
+          :rules="[{ required: true, message: '请输入密码!' }]"
         >
           <a-input-password v-model:value="formState.password" />
         </a-form-item>
     
         <a-form-item name="remember" :wrapper-col="{ offset: 6, span: 16}">
-          <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
+          <a-checkbox v-model:checked="formState.remember">记住密码</a-checkbox>
         </a-form-item>
     
         <a-form-item :wrapper-col="{ offset: 10, span: 16 }">
