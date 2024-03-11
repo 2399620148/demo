@@ -22,14 +22,16 @@
         <span style="color:aliceblue; right: 2%; top:0.5%; position: absolute;" @click="logout">退出登录</span> -->
       </a-layout-header>
       <a-layout-content style="padding: 0 0px">
-        <template>
+        <div>
+        
           <a-carousel autoplay>
-            <div><img src="https://img.dianyi.ng/view/photo/s_ratio_poster/public/p2904040720.jpg" object-fit></img></div>
-            <div><img src="/1.jpg"></img></div>
-            <div><img src="/login.jpg"></img></div>
-            <div><img src="/login.jpg"></img></div>
+            <div><img src="/1.jpg" object-fit></img></div>
+            <div><img src="/2.jpg"></img></div>
+            <div><img src="/3.jpg"></img></div>
+            <div><img src="/4.jpg"></img></div>
           </a-carousel>
-        </template>
+        
+      </div>
         <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">Content</div>
       </a-layout-content>
       <a-layout-footer style="text-align: center">

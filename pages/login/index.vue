@@ -63,9 +63,9 @@
           <a-input-password v-model:value="formState.password" />
         </a-form-item>
         
-        <a-form-item :wrapper-col="{ offset: 10, span: 16 }">
-          <a-button type="primary" html-type="submit" @click="toLogin">去登录</a-button>
-          <a-button type="primary" html-type="submit" @click="toRegister">注册</a-button>
+        <a-form-item >
+            <a-button type="primary" html-type="submit" @click="toLogin" block>去登录</a-button><br>
+            <a-button type="primary" html-type="submit" @click="toRegister" block>注册</a-button>
         </a-form-item>
       </a-form>
     </div>
