@@ -72,6 +72,10 @@
     
     console.log(Content)
    }
+function mounted() {
+  toContent()
+}
+   mounted()
 
   </script>
   <style scoped>
