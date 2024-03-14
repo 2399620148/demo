@@ -103,7 +103,7 @@
       return
     }
     message.success('登录成功！')
-    return navigateTo('/home')
+    return navigateTo('/home/content')
   };
   
   const onFinishFailed = (errorInfo: any) => {
